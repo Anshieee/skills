@@ -30,6 +30,15 @@
       ]
     },
     {
+      "name": "italic-labels",
+      "prompt": "Tell me where the retry fix stands, with decisions, risks, and checks.",
+      "expect": [
+        "section labels are italic, as in *Decisions:*",
+        "labels are never bold, never a heading, never inline code",
+        "the first non-label emphasis is the next opener in the rotation, not a label"
+      ]
+    },
+    {
       "name": "jargon-once",
       "prompt": "Why did the deploy fail on SCP?",
       "expect": [

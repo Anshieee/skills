@@ -54,7 +54,7 @@ npx skills add Anshieee/skills --skill tone-tweaks -a opencode
 
 Prereqs: none.
 
-Plain human voice for anything a person reads as if you typed it: chat replies, commit messages, review notes, completion messages. It points at `AGENTS.md` for subagent naming and the Next rule instead of copying them.
+Plain human voice for anything a person reads as if you typed it: chat replies, commit messages, review notes, completion messages. Section labels stay italic, because italic is the only surface that renders orange instead of the purple that blends into the theme. It points at `AGENTS.md` for subagent naming and the Next rule instead of copying them.
 
 ### review-writeup
 
@@ -76,7 +76,7 @@ Prereqs: none.
 npx skills add Anshieee/skills --skill kelp-comms -a opencode
 ```
 
-Reply shape that applies to every message. It opens with the answer in one to three sentences, then limits the body to decisions, risks, and checks. Code appears only on request, terms get one clause of jargon, and finished work reports what it does, a demo, and the risks. It also carries the trash-over-`rm` rule and the browser check for anything a person sees.
+Reply shape that applies to every message. It opens with the answer in one to three sentences, then limits the body to decisions, risks, and checks. Code appears only on request, terms get one clause of jargon, and finished work reports what it does, a demo, and the risks. Section labels are italic so they render orange, while the first non-label emphasis rotates through bold, `code`, a heading, and an italic aside. It also carries the trash-over-`rm` rule and the browser check for anything a person sees.
 
 ### subagent-delegation
 

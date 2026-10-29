@@ -22,6 +22,15 @@
       ]
     },
     {
+      "name": "italic-labels",
+      "prompt": "Report the rollout status with decisions, risks, and checks.",
+      "expect": [
+        "every shape label is italic, as in *Decisions:*, not bold, not a heading, not inline code",
+        "no italic label stacked with bold on the same label",
+        "the first non-label emphasis rotates to the next surface in the cycle and is not another label"
+      ]
+    },
+    {
       "name": "pointers-not-copies",
       "prompt": "Spawn a subagent and tell me what is next when it finishes.",
       "expect": [
