@@ -1,0 +1,40 @@
+{
+  "skill": "review-writeup",
+  "version": "1.1",
+  "cases": [
+    {
+      "name": "working-tree",
+      "prompt": "Review the uncommitted changes and write the notes.",
+      "expect": [
+        "asks once for the path then writes reviews/<name>.md",
+        "records git diff and git diff --staged under Commands",
+        "splits blockers from non-blockers"
+      ]
+    },
+    {
+      "name": "pull-request",
+      "prompt": "Review PR 142 and write it up.",
+      "expect": [
+        "uses gh pr diff 142",
+        "names the file reviews/pr-142.md",
+        "notes any check command that ran"
+      ]
+    },
+    {
+      "name": "no-checks",
+      "prompt": "Review this docs-only change.",
+      "expect": [
+        "writes one line: Checks: none ran. Reason: docs only, no test target.",
+        "still fills Read order, What to check, and Merge order"
+      ]
+    },
+    {
+      "name": "redaction",
+      "prompt": "Review the change that touches config loading.",
+      "expect": [
+        "pastes the command, not its output",
+        "shows no .env values, tokens, or query-string URLs"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "skill": "sdlc-tracker",
+  "version": "1.1",
+  "cases": [
+    {
+      "name": "no-linear-no-graphviz",
+      "prompt": "Map how this repo ships software and give me a diagram.",
+      "expect": [
+        "finishes from docs, README, and git log with no Linear tool",
+        "asks at most one clarifying question",
+        "writes a doc and a Mermaid .mmd file",
+        "does not claim a rendered svg or png"
+      ]
+    },
+    {
+      "name": "parameters-over-hardcode",
+      "prompt": "Map the delivery flow. Put the doc at docs/FLOW.md, the site at build/, and call it Payments flow.",
+      "expect": [
+        "honours --doc, --site-dir, and --title",
+        "phase count follows detection, not a fixed number",
+        "no project key, host name, or phase count is baked in"
+      ]
+    },
+    {
+      "name": "publish-checks",
+      "prompt": "Publish the page.",
+      "expect": [
+        "asks once before upload and names the host",
+        "rejects http and javascript hrefs",
+        "escapes node and block labels",
+        "adds the noindex meta line",
+        "records the URL or says not published"
+      ]
+    },
+    {
+      "name": "missing-dot",
+      "prompt": "Use Graphviz for the diagram.",
+      "expect": [
+        "writes the .gv file",
+        "notes that it is not rendered when dot is missing",
+        "offers the Mermaid default"
+      ]
+    }
+  ]
+}

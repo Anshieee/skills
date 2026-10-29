@@ -4,7 +4,7 @@ Thumbs.db
 *.swp
 *~
 
-# Env and secrets — never commit these
+# Env and secrets: never commit these
 .env
 .env.*
 !.env.example
@@ -16,3 +16,6 @@ Thumbs.db
 node_modules/
 __pycache__/
 *.pyc
+
+# Review writeups are local working output
+reviews/

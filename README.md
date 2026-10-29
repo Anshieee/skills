@@ -1,45 +1,92 @@
 # Skills
 
-A home for reusable agent skills: instructions and workflows that get loaded into a
-coding agent's context when a task matches them.
+A home for reusable agent skills: instructions and workflows that load into a coding agent's context when a task matches them.
 
-## Skills in this repo
+Every skill here installs and runs on its own. None of them needs another skill from this repo to produce its artifact.
+
+## Install
+
+Project scope, one agent (`opencode` here; use any detected agent name):
+
+```sh
+npx skills add Anshieee/skills --skill <name> -a opencode
+```
+
+Project scope, every detected agent:
+
+```sh
+npx skills add Anshieee/skills --skill <name> -a '*'
+```
+
+Global scope:
+
+```sh
+npx skills add Anshieee/skills --skill <name> -a opencode -g
+```
+
+A project install lands in `./.agents/skills/<name>/`, which the chosen agent reads. A global install lands in `~/.agents/skills/<name>/`.
+
+Add `-y` to skip the confirmation prompt. List what is available first with:
+
+```sh
+npx skills add Anshieee/skills -l
+```
+
+## Install matrix
+
+| Skill | Standalone | Pair with | Prereqs |
+| --- | --- | --- | --- |
+| tone-tweaks | yes | any skill that writes prose | none |
+| review-writeup | yes | tone-tweaks for voice | `git`; `gh` for PR diffs, optional |
+| sdlc-tracker | yes | tone-tweaks for voice | `git`; Linear, `dot`, and a static host are optional and detected at runtime |
+
+Pairing is a quality choice, not a dependency. A missing pair changes the fallback, never whether the skill finishes.
+
+```sh
+# Pair example: review writeups with the shared voice
+npx skills add Anshieee/skills --skill review-writeup -a opencode
+npx skills add Anshieee/skills --skill tone-tweaks -a opencode
+```
 
 ### tone-tweaks
 
-Plain human chat voice for anything a person reads as if you typed it: chat replies,
-grill questions, review threads, commit messages. Carries the global voice override
-(conversational level 3, grill question format, what is next rule).
+Prereqs: none.
 
-```sh
-npx skills add Anshieee/skills --skill tone-tweaks
-```
+Plain human voice for anything a person reads as if you typed it: chat replies, commit messages, review notes, completion messages. It points at `AGENTS.md` for subagent naming and the Next rule instead of copying them.
 
 ### review-writeup
 
-Turns a code review into a writeup a teammate can read without the diff open. One file
-per phase under `reviews/` with What it does, Read order, Commands, What to check,
-Blockers vs non-blockers, and Merge order.
+Prereqs: `git`. `gh` only for PR diffs.
 
-```sh
-npx skills add Anshieee/skills --skill review-writeup
-```
+Turns a review into a file a teammate can read without the diff open. One file per phase under `reviews/`, named by issue key, PR number, or branch. Voice comes from tone-tweaks when present, with a three-line fallback when it is not.
 
 ### sdlc-tracker
 
-Explains a project's SDLC as a page with a diagram plus plain words. Reads the Linear
-project, writes `docs/SDLC_MINDMAP.md`, builds a Graphviz diagram
-(`docs/sdlc-mindmap.gv/svg/png`), and builds `netlify/index.html` with the inline
-interactive SVG plus details blocks.
+Prereqs: `git`. Linear, `dot` (graphviz), and a static host are optional.
 
-```sh
-npx skills add Anshieee/skills --skill sdlc-tracker
-```
+Explains a project's delivery lifecycle as a doc plus a diagram, with an optional page. Four ports (source, diagram, publish, voice) each carry a contract, a default, a fallback, and a provenance line, so a run with no Linear, no Graphviz, and no host still produces the doc and a Mermaid diagram.
 
 ## Layout
 
-Each skill lives in its own directory with a `SKILL.md`:
+Skills live at `skills/<name>/SKILL.md`. The installer scans that path, so `--skill <name>` resolves the skill directly and does not rely on a fallback.
 
-- `tone-tweaks/SKILL.md`
-- `review-writeup/SKILL.md`
-- `sdlc-tracker/SKILL.md`
+```text
+skills/
+  tone-tweaks/
+    SKILL.md
+    references/grill-format.md
+    evals/evals.json
+  review-writeup/
+    SKILL.md
+    evals/evals.json
+  sdlc-tracker/
+    SKILL.md
+    references/worked-example.md
+    scripts/render.sh
+    scripts/check-links.sh
+    evals/evals.json
+```
+
+## License
+
+MIT. See `LICENSE`.
