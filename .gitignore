@@ -1,0 +1,18 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Env and secrets — never commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local scratch
+/tmp/
+node_modules/
+__pycache__/
+*.pyc
