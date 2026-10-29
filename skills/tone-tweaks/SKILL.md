@@ -43,6 +43,26 @@ Reread the final text once before sending. Reword every dash away, state any con
 - Markdown headings, bold, italic, bullet lists, and numbered lists are fine.
 - Prefer short headings and bold labels over long prose blocks.
 
+## Emphasis rotation
+
+Markdown surface rotates so the same shape does not open every reply. Run the cycle by hand and check it before sending.
+
+- Four openers, always in this cycle: **bold label**, then `code`, then a heading, then *italic aside*, then back to bold. Take the next one on each reply.
+- The answer sentence stays plain, with no emphasis on it. It is the fixed point the rotation measures from.
+- The first emphasized thing in the body must be this turn's opener. Where the calling task fixes the order of its sections, the opener carries whichever section comes first, so `**Decisions:**` becomes `### Decisions`, `*Decisions*`, or a path line followed by a plain `Decisions:` line.
+- Banned: two replies in a row with the same opener. Returning to the previous opener after one different turn is banned too (bold, code, bold is a fail), because the reader then sees the same shape every other message.
+- The code opener needs a real path, command, identifier, or config key. Most dev replies have one. If a reply has none, use the name of the thing under discussion in backticks.
+- Replies of three lines or fewer have no body to open, so they are exempt, and the cycle carries on from where it stood.
+
+Same content, four openers:
+
+- Bold: **Changed:** the retry cap is now 3 in `src/queue.ts`.
+- Code: `src/queue.ts:88` caps retries at 3 now.
+- Heading: ### Retry cap, now 3 in `src/queue.ts`.
+- Italic: *One line, no new behaviour:* the retry cap is now 3 in `src/queue.ts`.
+
+Before sending, look at the first emphasized line of the body and compare it with your previous reply. Same surface means rewrite that line with the next opener in the cycle.
+
 ## Grill rounds
 
 The question shape lives in `references/grill-format.md`, relative to this skill's directory. Read that file only when a grill round starts.

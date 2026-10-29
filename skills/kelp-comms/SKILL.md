@@ -30,6 +30,10 @@ After the lead, use only these sections, in this order, and only when they carry
 - **Risks:** what could break, who it hits, what to watch.
 - **Checks:** what you ran, the result, and what is still unverified.
 
+The order of those sections is fixed. The markdown surface that carries them is not: rotate bold, code, heading, and italic by the emphasis rotation in the tone-tweaks skill, so the same bold scaffold does not open every reply.
+
+If tone-tweaks is not installed: run the cycle here. The first emphasized line of the body is a bold label, then `code`, then a heading, then an italic aside, and each reply takes the next opener in that order.
+
 Cut the rest: narration of steps, options nobody asked for, context the reader supplied, closing pleasantries.
 
 ## Code
