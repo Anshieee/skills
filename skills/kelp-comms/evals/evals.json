@@ -1,0 +1,42 @@
+{
+  "skill": "kelp-comms",
+  "version": "1.0",
+  "cases": [
+    {
+      "name": "answer-first",
+      "prompt": "Did the migration land?",
+      "expect": [
+        "opens with the answer in one to three sentences",
+        "no restatement of the question",
+        "no narration of what the agent did to find out"
+      ]
+    },
+    {
+      "name": "only-actionable-sections",
+      "prompt": "Ship the retry fix and tell me where it stands.",
+      "expect": [
+        "body limited to decisions, risks, and checks",
+        "risks names what could regress or says none known",
+        "checks names what ran and what did not"
+      ]
+    },
+    {
+      "name": "no-unrequested-code",
+      "prompt": "Add a timeout to the client and report back.",
+      "expect": [
+        "names the file and what changed",
+        "does not paste the function body",
+        "shows code only if the follow-up asks for it"
+      ]
+    },
+    {
+      "name": "jargon-once",
+      "prompt": "Why did the deploy fail on SCP?",
+      "expect": [
+        "expands SCP once with a short content reminder",
+        "uses the short form afterwards",
+        "keeps the tradeoff or gotcha instead of dropping it for brevity"
+      ]
+    }
+  ]
+}

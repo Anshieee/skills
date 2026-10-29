@@ -1,0 +1,41 @@
+{
+  "skill": "subagent-delegation",
+  "version": "1.0",
+  "cases": [
+    {
+      "name": "parallel-not-serial",
+      "prompt": "Audit these four packages for license issues.",
+      "expect": [
+        "spawns four subagents in one block",
+        "one brief per package, no shared state between them",
+        "does not run them one at a time"
+      ]
+    },
+    {
+      "name": "no-subagent-for-one-read",
+      "prompt": "What does the Makefile's test target run?",
+      "expect": [
+        "reads the file directly",
+        "does not spawn a subagent"
+      ]
+    },
+    {
+      "name": "brief-has-four-parts",
+      "prompt": "Have subagents compare two auth libraries.",
+      "expect": [
+        "each brief states objective, output format, boundaries, and facts",
+        "names the files or docs to read",
+        "states the acceptance check or says there is none"
+      ]
+    },
+    {
+      "name": "second-opinion-with-context",
+      "prompt": "The small model has failed twice on the flaky test. What now?",
+      "expect": [
+        "asks a stronger model instead of retrying the same one",
+        "passes the original objective, attempts, exact failure, files, and constraints",
+        "names the subagent as Role: work (Model)"
+      ]
+    }
+  ]
+}
