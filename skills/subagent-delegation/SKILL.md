@@ -64,6 +64,14 @@ Follow the finished-work block in `kelp-comms` when it is installed. Otherwise s
 
 After CI is green on a PR and its review passed with no blocking findings, merge it into its target branch without asking first. Use a plain merge commit, no squash, no rebase. Then report what happened in words plus what merged, the test and CI evidence, and what is next. Every report carries a short narrative of what was done and why, not just a checks table. Never merge with red CI or unresolved blocking findings. Never force-push. Never delete remote branches, the owner handles that separately.
 
+## Autonomy
+
+Take the recommended action on nonblocking findings without asking. Decide autonomously and complete the owner's part to the finish. Only stop for genuinely blocking items that need credentials, account access, or an owner decision, and report exactly what each one needs.
+
+## Never Nebius
+
+No Nebius endpoints, keys, accounts, Token Factory, or Nebius deploy targets anywhere. If Nebius appears in code, docs, env, or plans, remove it.
+
 ## Scope
 
 Applies whenever this session fans work out to subagents. The user's rules win over this file.
