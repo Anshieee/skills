@@ -60,6 +60,10 @@ A second opinion without the failed attempt is a restart, not a second opinion.
 
 Follow the finished-work block in `kelp-comms` when it is installed. Otherwise state what changed, how it was checked, and what is still unverified.
 
+## Merging
+
+After CI is green on a PR and its review passed with no blocking findings, merge it into its target branch without asking first. Use a plain merge commit, no squash, no rebase. Then report what merged, the test and CI evidence, and what is next. Never merge with red CI or unresolved blocking findings. Never force-push. Never delete remote branches, the owner handles that separately.
+
 ## Scope
 
 Applies whenever this session fans work out to subagents. The user's rules win over this file.
